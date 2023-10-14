@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+        }
+
+        /*==============================================================================*/
+
+
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .website-name {
+            color: aliceblue;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .website-name:hover,
+        .website-name:focus {
+            text-decoration: underline;
+        }
+
+        /*==============================================================================*/
+
+        .footer {
+            background: black;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 400;
+            padding: 1.5rem 0;
+            margin: 0 auto;
+        }
+
+        .text {
+            color: #999999;
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0 0.9rem;
+            padding-top: 0.9rem;
+            margin: 0 auto;
+        }
+
+        .listSM {
+            font-weight: 300;
+            color: white;
+        }
+
+        .listSM:hover {
+            color: #8a8282;
+        }
+
+        /*==============================================================================*/
+
+
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            height: 75vh;
+            background-image: url('Image/mars.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            flex: 1;
+        }
+
+        button {
+            padding: 10px;
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: aliceblue;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="Image/basic+white-rocket-131994932040824926.png" alt="ROCKETSPACE Logo" class="logo">
+            <a href="homepage.html" class="website-name">ROCKETSPACE</a>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <form action="your-server-endpoint" method="post">
+            <div class="input-row">
+                <input type="text" name="first-name" placeholder="First Name" required>
+                <input type="text" name="last-name" placeholder="Last Name" required>
+            </div>
+            <div class="input-row">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone-number" placeholder="Phone Number" required>
+            </div>
+            <textarea name="questions" rows="5" placeholder="Questions and Ideas..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="text">ROCKETSPACE © 2023</div>
+        <ul class="list">
+            <a class="listSM" style="text-decoration: none" href="https://twitter.com/">Twitter</a>
+            <a class="listSM" style="text-decoration: none" href="https://www.youtube.com/">youtube</a>
+            <a class="listSM" style="text-decoration: none" href="https://www.instagram.com/">instagram</a>
+        </ul>
+    </footer>
+
+
+</body>
+
+</html>
