@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Future Outlook</title>
     <style>
         body {
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: black;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
         }
 
         /*==============================================================================*/
@@ -21,6 +18,7 @@
         header {
             background-color: #000000;
             padding: 20px 0;
+            text-align: center;
         }
 
         .logo-container {
@@ -86,61 +84,84 @@
 
         /*================================================================*/
 
-        .future {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            padding: 50px;
-        }
-
-        .text-content {
-            flex: 1;
-            max-width: 60%;
-            margin-right: 20px;
-            color: aliceblue;
-        }
-
-        .text-content h1 {
-            border-bottom: 2px solid #fff;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-
-        .text-content p {
-            font-size: 18px;
+        .article-header {
+            text-align: center;
+            margin-top: 0px;
+            padding-top: 0px;
             margin-bottom: 30px;
-            line-height: 1.6;
         }
 
-        .buttons {
-            display: flex;
-            gap: 10px;
+        .article-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            border-radius: 10px;
         }
 
-        button {
-            background-color: #fff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .article-content {
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 2;
         }
 
-        button:hover {
-            background-color: #444;
-            color: #fff;
+        .article-date {
+            text-align: right;
+            margin-top: 40px;
+            margin-right: 50px;
         }
 
-        .image-content {
-            flex: 1;
-            max-width: 40%;
+        @media only screen and (min-width: 768px) {
+
+            .article-header {
+                margin-top: 100px;
+                margin-bottom: 50px;
+            }
+
+            .article-image {
+                width: 75%;
+            }
+
+            .article-content {
+                width: 80%;
+                font-size: 20px;
+            }
+
+            .article-date {
+                margin-right: 100px;
+            }
+
+            .list {
+                padding: 0 2rem;
+            }
         }
 
-        .image-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+
+        @media only screen and (max-width: 480px) {
+
+            .article-header {
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+
+            .article-image {
+                width: 90%;
+            }
+
+            .article-content {
+                width: 95%;
+                font-size: 16px;
+            }
+
+            .article-date {
+                margin-right: 20px;
+            }
+
+            .list {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -152,39 +173,57 @@
             <a href="homepage.html" class="website-name">ROCKETSPACE</a>
         </div>
     </header>
-    <section class="future">
-        <div class="text-content">
-            <h1>Future Outlook</h1>
-            <p>The notion of humanity becoming a multiplanetary species has transformed from the realm of science
-                fiction into a tangible, near-future goal, thanks largely to groundbreaking advancements in rocket and
-                spacecraft technologies. The unyielding desire to explore and inhabit other celestial bodies, not just
-                as a backup plan, but as an inherent part of human evolution, has been spurred on by this technological
-                revolution. Companies like SpaceX and Blue Origin, among others, have significantly reduced the costs of
-                space travel through the development of reusable rocket technologies. The ambition to colonize Mars, for
-                instance, is no longer a far-fetched dream but a planned mission. Massive spacecrafts, equipped with
-                life-sustaining amenities, are under design and construction, set to ferry hundreds of passengers on
-                interplanetary journeys.
+    <div class="article-header">
+        <h1>Future Outlook In Space Travel </h1>
+        <h3>Mars Colonization</h3>
+    </div>
+    <img src="Image/mars2.jpg" alt="Sam Bankman-Fried" class="article-image">
+    <div class="article-content">
+        <p>
+            Mars colonization presents profound challenges, starting with the perilous journey of around seven months
+            through the vacuum of space. Upon arrival, colonists will encounter a hostile environment: extreme cold,
+            a thin carbon dioxide atmosphere, and intense radiation due to the lack of a protective magnetosphere.
+            These conditions necessitate the development of robust habitats capable of sustaining life, protecting
+            against radiation, and providing breathable air and potable water.
 
-                This multiplanetary vision is not just about the thrill of space colonization; it's about ensuring the
-                long-term survival and prosperity of humanity. Our history on Earth is riddled with instances of
-                cataclysmic events, such as asteroid impacts and volcanic super eruptions, which have the potential to
-                threaten human existence. By establishing colonies on other planets, we can safeguard our species
-                against such terrestrial catastrophes. Additionally, a multiplanetary existence promises a wealth of new
-                opportunities. Mining asteroids and other planets could offer resources that are scarce on Earth,
-                potentially driving new economic booms. Scientific research on other planets can provide insights into
-                the origins and evolution of our own world. Moreover, the challenges of living on other planets will
-                likely drive innovations in areas ranging from sustainable agriculture to energy solutions. As we stand
-                on the cusp of this new era, the future shines brightly, offering a realm of possibilities that were
-                once confined to the pages of speculative fiction. The quest to become a multiplanetary species is more
-                than an adventurous aspiration; it's a testament to human resilience, ambition, and the undying spirit
-                of exploration. Learn more about rockets in our rocket engine page, or contact us with your ideas</p>
-            <a href="rocketEngine.html"><button >Rocket Engine</button></a>
-            <a href="ContactUs.html"><button >Contact Us</button></a>
-        </div>
-        <div class="image-content">
-            <img src="Image/mars2.jpg" alt="Book's related image">
-        </div>
-    </section>
+            <br><br>
+
+            The utilization of in-situ resources is a cornerstone of sustainable colonization. Technologies such as
+            MOXIE, an experiment on NASA's Perseverance rover designed to produce oxygen from Martian CO2, are
+            prototypes for future, larger-scale systems. Furthermore, 3D printing with regolith, the loose Martian
+            soil, is being explored to construct habitats and infrastructure without the prohibitive cost of
+            transporting materials from Earth.
+
+            <br><br>
+
+            Biological considerations also play a pivotal role in colonization. Long-term exposure to microgravity
+            and reduced gravity on Mars can lead to muscle atrophy and bone loss in humans. Research in
+            countermeasures, including artificial gravity and exercise regimens, is essential for health maintenance.
+            Additionally, the psychological impact of isolation and confinement must be addressed through habitat
+            design and social structures that foster a sense of community and wellbeing.
+
+            <br><br>
+
+            The tantalizing possibility of terraforming, the process of modifying Mars' environment to make it more
+            Earth-like, remains a distant and controversial goal. Such a transformation would take centuries and
+            raises ethical considerations about the potential for microbial life on Mars and our responsibility to
+            preserve it.
+
+
+            <br>
+            <br>
+
+
+            Mars colonization is more than a physical endeavor; it represents a philosophical leap for humanity. As
+            we step into this new epoch, the lessons learned could not only ensure the survival of our species but
+            also teach us about resilience, innovation, and the preservation of our home planet. The Red Planet thus
+            serves as a canvas for one of humanity's grandest adventures, and the brushstrokes of this epic are only
+            just beginning.
+
+            <br><br>
+        </p>
+    </div>
+    <div class="article-date">Nov 3rd, 2023 | ROCKETSPACE</div>
     <footer class="footer">
         <div class="text">ROCKETSPACE © 2023</div>
         <ul class="list">

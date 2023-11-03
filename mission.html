@@ -2,254 +2,269 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>2x2 Grid Layout</title>
-    <style>
-        body {
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: black; 
-        }
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Card Layout with CSS Grid</title>
+     <style>
+          * {
+               box-sizing: border-box;
+               padding: 0;
+               margin: 0;
+          }
 
-        /*==============================================================================*/
+          body {
+               font-family: 'Times New Romen';
+               margin: 0;
+               padding: 0;
+               text-align: center;
+               background-color: black;
+          }
 
-
-        header {
-            background-color: #000000;
-            padding: 20px 0;
-        }
-
-        .logo-container {
-            display: inline-flex;
-            /* Inline-flex keeps it centered */
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: auto;
-            margin-right: 10px;
-        }
-
-        .website-name {
-            color: aliceblue;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .website-name:hover,
-        .website-name:focus {
-            text-decoration: underline;
-        }
-
-        /*==============================================================================*/
-
-        .footer {
-            background: black;
-            position: relative;
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            font-weight: 400;
-            padding: 1.5rem 0;
-            margin: 0 auto;
-        }
-
-        .text {
-            color: #999999;
-        }
-
-        .list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 0 0.9rem;
-            padding-top: 0.9rem;
-            margin: 0 auto;
-        }
-
-        .listSM {
-            font-weight: 300;
-            color: white;
-        }
-
-        .listSM:hover {
-            color: #8a8282;
-        }
-
-        /*==============================================================================*/
-
-        @media only screen and (max-width: 1000px) {
-            nav {
-                display: none;
-            }
-
-            header {
-                justify-content: center;
-            }
-
-            .logo {
-                width: 60px;
-            }
-
-            .logo-container h1 {
-                font-size: 24px;
-                margin-left: 10px;
-            }
-        }
+          /*==============================================================================*/
 
 
-        .grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-        }
+          header {
+               background-color: #000000;
+               padding: 20px 0;
+          }
 
-        .grid-item {
-            flex: 1 1 calc(50% - 20px);
-            /* flex-grow, flex-shrink, flex-basis */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            overflow: hidden;
-        }
+          .logo-container {
+               display: inline-flex;
+               align-items: center;
+               justify-content: center;
+          }
 
-        .grid-item img {
-            width: 100%;
-            height: calc(100% * 9 / 16);
-            object-fit: cover;
-        }
+          .logo {
+               width: 50px;
+               height: auto;
+               margin-right: 10px;
+          }
 
-        .text-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+          .website-name {
+               color: aliceblue;
+               text-decoration: none;
+               font-size: 24px;
+               font-weight: bold;
+          }
 
-        h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
+          .website-name:hover,
+          .website-name:focus {
+               text-decoration: underline;
+          }
 
-        p {
-            margin: 0;
-        }
+          /*==============================================================================*/
 
-        /* Single column layout for smaller screens 
-@media (max-width:900px){
-    .grid-item {
-        flex: 1 1 100%;  taking full width of the container 
-    }
-} */
-    </style>
+          .footer {
+               background: black;
+               position: relative;
+               text-align: center;
+               text-transform: uppercase;
+               font-size: 0.7rem;
+               font-weight: 400;
+               padding: 1.5rem 0;
+               margin: 0 auto;
+          }
+
+          .text {
+               color: #999999;
+          }
+
+          .list {
+               display: flex;
+               flex-wrap: wrap;
+               justify-content: space-evenly;
+               align-items: center;
+               padding: 0 0.9rem;
+               padding-top: 0.9rem;
+               margin: 0 auto;
+          }
+
+          .listSM {
+               font-weight: 300;
+               color: white;
+          }
+
+          .listSM:hover {
+               color: #8a8282;
+          }
+
+          /*==============================================================================*/
+
+          main {
+               display: grid;
+               grid-template-columns: repeat(4, 1fr);
+               grid-gap: 20px;
+               padding: 20px;
+               max-width: 1200px;
+               margin: 0 auto;
+          }
+
+          .card {
+               background-color: white;
+               color: black;
+               cursor: pointer;
+               transition: transform 0.3s ease;
+               display: flex;
+               flex-direction: column;
+               overflow: hidden;
+          }
+
+          .card__image-container {
+               overflow: hidden;
+          }
+
+          .card__image-container img {
+               width: 100%;
+               height: 300px;
+               object-fit: cover;
+          }
+
+          .card__content {
+               padding: 15px;
+               text-align: center;
+               flex: 1;
+          }
+
+          .card__title {
+               margin-bottom: 10px;
+               text-align: center;
+               margin-top: 10px;
+               margin-bottom: 10px;
+          }
+
+          .card__info {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+          }
+
+          .card__price {
+               padding: 5px 20px;
+               background-color: #303032;
+               border-radius: 20px;
+          }
+
+          @media (max-width: 1700px) {
+               main {
+                    grid-template-columns: 1fr 1fr;
+               }
+          }
+
+          @media (max-width: 1000px) {
+               main {
+                    grid-template-columns: 1fr;
+               }
+
+               .card {
+                    margin-left: 10px;
+                    margin-right: 10px;
+               }
+          }
+
+          @media (max-width: 600px) {
+               main {
+                    grid-template-columns: 1fr;
+               }
+
+               .card {
+                    margin-left: 1px;
+                    margin-right: 1px;
+               }
+          }
+     </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="Image/basic+white-rocket-131994932040824926.png" alt="ROCKETSPACE Logo" class="logo">
-            <a href="homepage.html" class="website-name">ROCKETSPACE</a>
-        </div>
-    </header>
-    <div class="grid-container">
-        <div class="grid-item">
-            <img src="Image/starship2edit.jpg" alt="Image Description 1">
-            <div class="text-content">
-                <h3>Starship Mission</h3>
-                <p>The Raptor engine, developed by SpaceX, represents a pivotal advancement in rocket technology and an
-                    essential component in the realization of the ambitious objective to make space travel more
-                    sustainable and accessible. Manufactured with the aim of powering star-faring voyages to
-                    destinations like Mars, the Raptor is unique in its use of methane and liquid oxygen as propellants,
-                    which can potentially be synthesized on the Red Planet itself, facilitating return journeys to
-                    Earth. This full-flow staged combustion engine, remarkable for its potent thrust-to-weight ratio,
-                    has been meticulously engineered to furnish the Starship spacecraft with the formidable power
-                    required to convey large payloads to distant cosmic locales. Moreover, the Raptor's potential goes
-                    beyond facilitating interplanetary travel; it plays a pivotal role in a variety of SpaceX missions,
-                    contributing to the exploration of the cosmos, and offering a glimpse into the future of space
-                    travel, where interstellar journeys become regularized and cosmic tourism is not just a dream, but a
-                    tangible reality. Through innovation, robust design, and a vision that transcends our earthly
-                    bounds, the Raptor engine has propelled us into a new era of space exploration, knitting the cosmos
-                    a bit closer to our technological and explorative capabilities.</p>
-            </div>
-        </div>
-        <!-- More grid items... -->
-        <div class="grid-item">
-            <img src="Image/starlink.jpg_large" alt="Image Description 2">
-            <div class="text-content">
-                <h3>Starlink Mission</h3>
-                <p>Embarking on an extraordinary journey through the cosmos, SpaceX's Merlin engine encapsulates a
-                    marvel of modern aerospace engineering and stands as a beacon of human ingenuity in space
-                    technology. The Merlin engines, the heartbeat of the Falcon family of rockets, underscore a pivotal
-                    era in which space travel transitions from a government-exclusive endeavor to an accessible frontier
-                    for private enterprises. These engines, characterized by their remarkable thrust, reliability, and
-                    reusability, have fueled a myriad of missions — launching satellites, transporting cargo to the
-                    International Space Station (ISS), and shaping the future of interplanetary travel. Notably,
-                    Merlin’s design principle revolves around the concept of minimalism and redundancy, ensuring that
-                    the engine remains functional and safe, even if certain components fail mid-flight. This intrinsic
-                    capability to endure and adapt resonates with SpaceX’s broader vision of making space travel more
-                    economical and sustainable. As we gaze into the vastness of the universe, the Merlin engines, with
-                    their symphony of roaring power and technological prowess, elevate our aspirations, propelling
-                    humanity forward into the uncharted territories of space, and etching an indelible mark in the
-                    annals of cosmic exploration.</p>
-            </div>
-        </div>
-        <div class="grid-item">
-            <img src="Image/voyager2.jpg" alt="Image Description 3">
-            <div class="text-content">
-                <h3>Voyager 1 and 2 Mission</h3>
-                <p>Embarking on a journey through the annals of aerospace engineering, the RD-180 engine emerges as a
-                    pinnacle of robust design and reliable performance, significantly propelling the advancements in
-                    space exploration. Crafted meticulously by Russia’s NPO Energomash, and prominently utilized by the
-                    United Launch Alliance’s Atlas V rocket, the RD-180 engine narrates a story of international
-                    collaboration and shared cosmic aspirations. Esteemed for its remarkable thrust-to-weight ratio and
-                    impeccable reliability, the RD-180 has become synonymous with a multitude of significant payloads
-                    and has successfully lofted them into their destined orbits, including critical satellite
-                    deployments, interplanetary missions, and vital national defense payloads. Imbued with a rich
-                    legacy, the RD-180 is not merely an engine; it symbolizes a beacon of human ingenuity, reflecting
-                    decades of accumulated knowledge and expertise in rocket</p>
-            </div>
-        </div>
-        <div class="grid-item">
-            <img src="Image/moon2.jpg" alt="Image Description 4">
-            <div class="text-content">
-                <h3>Apollo 11 Mission</h3>
-                <p>The F-1 engine, a monumental icon in the annals of aerospace engineering, effortlessly intertwines
-                    historical grandeur with mechanical brilliance, demonstrating an exemplary milestone in mankind's
-                    venture into the cosmos. Developed by Rocketdyne under the auspices of NASA during the pivotal Space
-                    Race era, the F-1 finds its prestige as the powerhouse beneath the Saturn V rocket, propelling
-                    Apollo astronauts towards the celestial allure of the Moon. With an unparalleled thrust output and a
-                    meticulous engineering design that intricately weaves robust power with reliability, the F-1
-                    eloquently narrates a tale of human ingenuity, ambition, and an unyielding pursuit of the
-                    extraterrestrial unknown. As flames and vigor emanated from its combustion chamber, the F-1 not only
-                    launched astronauts into orbit but also the collective dreams and aspirations of a generation
-                    yearning to explore beyond our blue skies. Within its echoes of roaring propellants and machined
-                    precision, the F-1 engine encapsulates a timeless testament to technological achievement and the
-                    indomitable human spirit. As we stand on the precipice of new astronomical adventures, the F-1
-                    remains an eternal beacon, illuminating the path towards the next epoch of space exploration and the
-                    unyielding quest for understanding the mysteries of the cosmos.</p>
-            </div>
-        </div>
-    </div>
-    <footer class="footer">
-        <div class="text">ROCKETSPACE © 2023</div>
-        <ul class="list">
-            <a class="listSM" style="text-decoration: none" href="https://twitter.com/">Twitter</a>
-            <a class="listSM" style="text-decoration: none" href="https://www.youtube.com/">youtube</a>
-            <a class="listSM" style="text-decoration: none" href="https://www.instagram.com/">instagram</a>
-        </ul>
-    </footer>
+     <header>
+          <div class="logo-container">
+               <img src="Image/basic+white-rocket-131994932040824926.png" alt="ROCKETSPACE Logo" class="logo">
+               <a href="homepage.html" class="website-name">ROCKETSPACE</a>
+          </div>
+     </header>
+     <main>
+          <div class="card">
+               <div class="card__image-container">
+                    <img src="Image/starship2edit.jpg" alt="image" />
+               </div>
+               <div class="card__content">
+                    <h2 class="card__title">Starship Mission</h2>
+                    <div class="card__info">
+                         <span>The Merlin engine is the workhorse of SpaceX's fleet, propelling the Falcon rockets to
+                              orbit. It's a gas-generator cycle engine using RP-1 and liquid oxygen. Merlin's design is
+                              focused on reliability and manufacturability, incorporating a pintle injector for deep
+                              throttling capabilities. This injector, originally used in Apollo's Lunar Module Descent
+                              Engine, offers precise control and contributes to the Falcon 9’s reusability, allowing for
+                              controlled landings. With a sea-level optimized version for liftoff and a vacuum-optimized
+                              variant for high-efficiency upper-stage operations, the Merlin engine has successfully
+                              powered numerous missions, deploying satellites and sending astronauts to the
+                              International Space Station.</span>
+                    </div>
+               </div>
+          </div>
+          <div class="card">
+               <div class="card__image-container">
+                    <img src="Image/starlink.jpg_large" alt="image" />
+               </div>
+               <div class="card__content">
+                    <h2 class="card__title">Starlink Mission</h2>
+                    <div class="card__info">
+                         <span> The Raptor engine, designed by SpaceX, represents a technological leap in rocket
+                              propulsion. It's a full-flow staged combustion engine, burning cryogenic methane and
+                              oxygen, a choice driven by Musk’s Martian ambitions due to methane's availability on Mars.
+                              Unlike traditional rocket engines, both propellants in the Raptor are pre-burned,
+                              maximizing efficiency and performance. This innovation enables deep throttling, critical
+                              for precise landings and reusability. With a robust thrust-to-weight ratio, the Raptor
+                              powers SpaceX’s Starship, intended for missions to the Moon, Mars, and beyond. Its
+                              development underscores a new era in space exploration, prioritizing sustainability,
+                              power, and reusability.</span>
+                    </div>
+               </div>
+          </div>
+          <div class="card">
+               <div class="card__image-container">
+                    <img src="Image/voyager2.jpg" alt="image" />
+               </div>
+               <div class="card__content">
+                    <h2 class="card__title">Voyager 1 and 2 Mission</h2>
+                    <div class="card__info">
+                         <span> The RD-180 is a powerful Russian rocket engine, renowned for its high performance and
+                              reliability. Utilizing a dual-combustion chamber, dual-nozzle design, it's an evolution of
+                              the Soviet-era RD-170 family, optimized for single-core use. The engine employs a highly
+                              efficient staged combustion cycle, burning kerosene and liquid oxygen. It has been the
+                              thrust behind United Launch Alliance’s workhorse, the Atlas V rocket, playing a crucial
+                              role in American space endeavors. Despite political tensions and efforts to replace it
+                              with domestic alternatives, the RD-180's impressive track record cements its legacy in the
+                              annals of space exploration.</span>
+                    </div>
+               </div>
+          </div>
+          <div class="card">
+               <div class="card__image-container">
+                    <img src="Image/moon2.jpg" alt="image" />
+               </div>
+               <div class="card__content">
+                    <h2 class="card__title">Apollo 11 Mission</h2>
+                    <div class="card__info">
+                         <span> The F-1 engine, developed by Rocketdyne in the 1950s and 1960s, remains the most
+                              powerful single-chamber liquid-fueled rocket engine ever flown. Five F-1 engines powered
+                              the Saturn V's first stage, launching Apollo astronauts to the Moon. Each engine generated
+                              an incredible 1.5 million pounds of thrust, burning RP-1 (refined kerosene) and liquid
+                              oxygen. The F-1's iconic roaring ascent epitomized the might of the American space effort
+                              during the Cold War. Despite being retired after the Apollo program, the F-1's engineering
+                              marvels continue to influence rocket design, inspiring awe with its sheer power and
+                              historical significance.</span>
+                    </div>
+               </div>
+          </div>
+     </main>
+     <footer class="footer">
+          <div class="text">ROCKETSPACE © 2023</div>
+          <ul class="list">
+               <a class="listSM" style="text-decoration: none" href="https://twitter.com/">Twitter</a>
+               <a class="listSM" style="text-decoration: none" href="https://www.youtube.com/">youtube</a>
+               <a class="listSM" style="text-decoration: none" href="https://www.instagram.com/">instagram</a>
+          </ul>
+     </footer>
 </body>
 
 </html>
