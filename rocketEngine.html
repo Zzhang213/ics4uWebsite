@@ -4,29 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Rocket Engine</title>
+    <title>Rocket Space</title>
+
+
     <style>
         body {
-            font-family: 'Courier New', monospace;
+            margin: 0px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-color: black;
+            box-sizing: border-box;
         }
 
-        /*==============================================================================*/
-
+        /*=========================================================*/
 
         header {
-            background-color: #000000;
-            padding: 20px 0;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: rgba(0, 0, 0, 0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
 
+
         .logo-container {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: center;
         }
 
         .logo {
@@ -35,19 +46,232 @@
             margin-right: 10px;
         }
 
-        .website-name {
-            color: aliceblue;
+        .logo-container h1 {
+            color: #ECF0F1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 25px;
+        }
+
+        nav a {
             text-decoration: none;
-            font-size: 24px;
+            color: #ECF0F1;
+            font-size: 16px;
             font-weight: bold;
         }
 
-        .website-name:hover,
-        .website-name:focus {
-            text-decoration: underline;
+        nav a:hover {
+            color: rgb(154, 151, 151);
         }
 
-        /*==============================================================================*/
+        .contact-button {
+            background-color: rbg(0, 0, 0, 0);
+            color: aliceblue;
+            border: 2px solid white;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: aliceblue;
+            color: #000000;
+        }
+
+
+        /*================================================================*/
+
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .menu-icon {
+            color: white;
+            display: inline-block;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked+.menu-icon+.nav {
+            display: flex;
+
+        }
+
+        #menu-toggle:checked+.menu-icon+.nav ul {
+            flex-direction: column;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #menu-toggle:checked+.menu-icon+.nav ul li {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+        @media only screen and (max-width: 1000px) {
+            header {
+                justify-content: space-between;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+
+            nav ul {
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                display: block;
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .logo {
+                width: 40px;
+            }
+
+            .logo-container h1 {
+                font-size: 20px;
+            }
+
+            #menu-toggle:checked~header {
+                background-color: black;
+            }
+
+            #menu-toggle:checked+.menu-icon+.nav {
+                display: flex;
+                background-color: black;
+            }
+
+
+
+        }
+
+        @media (hover: hover) {
+            nav a:hover {
+                color: #E0E0E0;
+                background-color: #333;
+            }
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+
+            .logo-container {
+                justify-content: center;
+                flex-grow: 1;
+            }
+
+            .logo-container h1 {
+                text-align: center;
+            }
+
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0;
+                padding: 10px;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+
+            .hamburger-menu {
+                width: 100%;
+                justify-content: center;
+            }
+
+
+            .container .content {
+                left: 50%;
+                transform: translate(-50%, 100%);
+                bottom: 50%;
+                text-align: center;
+            }
+
+
+
+            .container .content .header,
+            .container .content .subheader {
+                margin: 0.5rem 0;
+            }
+
+
+            .container .content .button {
+                margin: 1rem auto;
+                display: block;
+            }
+
+            .container .content .button .text {
+                padding: 1rem 2rem;
+            }
+
+
+            .footer {
+                padding: 1rem 0;
+            }
+
+            .list {
+                justify-content: center;
+            }
+
+            .listSM {
+                margin: 0.5rem;
+            }
+        }
+
+
+        @media (hover: none) {
+
+            nav a:hover,
+            .contact-button:hover,
+            .container .content .button:hover .text {
+                background-color: transparent;
+                color: inherit;
+            }
+        }
+
+        /*============================*/
 
         .footer {
             background: black;
@@ -58,6 +282,7 @@
             font-weight: 400;
             padding: 1.5rem 0;
             margin: 0 auto;
+            transform: translateY(100%);
         }
 
         .text {
@@ -83,114 +308,178 @@
             color: #8a8282;
         }
 
-        /*==============================================================================*/
+        /*========================================*/
 
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
+        .website-name {
+            color: aliceblue;
+            text-decoration: none;
         }
 
-        main {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .website-name:hover,
+        .website-name:focus {
+            text-decoration: underline;
         }
 
-        .card {
-            background-color: white;
-            color: black;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+        /*========================================*/
+        body {
+    font-family: 'Courier New', monospace; /* Sets the default font for the body */
+    margin: 0; /* Removes default margin */
+    text-align: center; /* Centers text by default */
+    background-color: black; /* Sets the background color of the body to black */
+}
 
-        .card__image-container {
-            background-color: black;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.website-name {
+    color: aliceblue; /* Sets the color of the website name links */
+    text-decoration: none; /* Removes underline from links */
+}
 
-        .card__image-container img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
+.website-name:hover,
+.website-name:focus {
+    text-decoration: underline; /* Adds underline on hover/focus for accessibility */
+}
 
-        .card__content {
-            padding: 15px;
-            text-align: center;
-            flex: 1;
-        }
+header {
+    background-color: black; /* Sets the header background color to black */
+}
 
-        .card__title {
-            margin-bottom: 10px;
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
+main {
+    display: grid; /* Establishes a grid layout for the main content */
+    grid-template-columns: repeat(4, 1fr); /* Sets the grid to have four equal columns */
+    grid-gap: 20px; /* Sets the gap between grid items */
+    padding: 20px; /* Adds padding inside the main element */
+    max-width: 1200px; /* Sets a maximum width for the main content */
+    margin: 0 auto; /* Centers the main content */
+    transform: translateY(5%); /* Moves the main content down slightly */
+}
 
-        .card__info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.card {
+    background-color: white; /* Sets the card background color to white */
+    color: black; /* Sets the text color inside the card */
+    cursor: pointer; /* Changes the cursor to indicate the card is clickable */
+    transition: transform 0.3s ease; /* Adds animation for transform properties */
+    display: flex; /* Uses flexbox for the layout inside the card */
+    flex-direction: column; /* Stacks flex items vertically */
+    overflow: hidden; /* Hides any overflow inside the card */
+}
 
-        .card__price {
-            padding: 5px 20px;
-            background-color: #303032;
-            border-radius: 20px;
-        }
+.card__image-container {
+    background-color: black; /* Sets the image container background to black */
+    height: 300px; /* Sets a fixed height for the image container */
+    display: flex; /* Uses flexbox for centering the image */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+}
 
-        @media (max-width: 1700px) {
-            main {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+.card__image-container img {
+    max-height: 100%; /* Constrains the image height to the container's height */
+    max-width: 100%; /* Constrains the image width to the container's width */
+    object-fit: contain; /* Ensures the image is scaled properly within the container */
+}
 
-        @media (max-width: 1000px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
+.card__content {
+    padding: 15px; /* Adds padding inside the content area of the card */
+    text-align: center; /* Centers the text inside the content area */
+    flex: 1; /* Allows the content area to expand to fill available space */
+}
+
+.card__title {
+    margin-top: 10px; /* Adds space above the title */
+    margin-bottom: 10px; /* Adds space below the title */
+}
+
+.card__info {
+    display: flex; /* Uses flexbox for layout inside the info area */
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Centers items vertically */
+}
+
+.card__price {
+    padding: 5px 20px; /* Adds padding inside the price element */
+    background-color: #303032; /* Sets a dark background for the price */
+    border-radius: 20px; /* Rounds the corners of the price element */
+}
+
+/* Responsive design adjustments for different screen widths */
+@media (max-width: 1700px) {
+    main {
+        grid-template-columns: 1fr 1fr; /* Adjusts to two columns on wider screens */
+    }
+}
+
+@media (max-width: 1000px) {
+    main {
+        grid-template-columns: 1fr; /* Adjusts to a single column on narrower screens */
+    }
+}
+
     </style>
 </head>
 
 <body>
+
     <header>
+        <!-- Logo container which includes an image and a company name -->
         <div class="logo-container">
             <img src="Image/basic+white-rocket-131994932040824926.png" alt="ROCKETSPACE Logo" class="logo">
-            <a href="homepage.html" class="website-name">ROCKETSPACE</a>
+            <a href="homepage.html" class="website-name">
+                <h1>ROCKETSPACE</h1>
+            </a>
         </div>
+
+        <!-- Hamburger menu for mobile or smaller screens -->
+        <div class="hamburger-menu">
+            <!-- Checkbox input for toggling the menu -->
+            <input id="menu-toggle" type="checkbox">
+            <!-- Label which is styled as a hamburger icon, linked to the checkbox -->
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <!-- Navigation menu that will be shown or hidden based on the checkbox state -->
+            <nav class="nav">
+                <ul>
+                    <li><a href="rocketEngine.html">Rocket Engine</a></li>
+                    <li><a href="mission.html">Recent Mission</a></li>
+                    <li><a href="future.html">Future Outlook</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Regular navigation menu for larger screens -->
+        <nav class="nav">
+            <ul>
+                <li><a href="rocketEngine.html">Rocket Engine</a></li>
+                <li><a href="mission.html">Recent Mission</a></li>
+                <li><a href="future.html">Future Outlook</a></li>
+                <!-- Contact button styled differently from other menu items -->
+                <li><a href="ContactUs.html" class="contact-button">Contact</a></li>
+            </ul>
+        </nav>
     </header>
+
 
     <main>
         <div class="card">
+            <!-- Container for the card's image -->
             <div class="card__image-container">
                 <img src="Image/engine2.jpg" alt="image" />
             </div>
+            <!-- Container for the card's text content -->
             <div class="card__content">
+                <!-- Title of the card -->
                 <h2 class="card__title">Merlin Engine</h2>
+                <!-- Container for the descriptive information about the Merlin Engine -->
                 <div class="card__info">
-                    <span>The Merlin engine is the workhorse of SpaceX's fleet, propelling the Falcon rockets to
-                        orbit. It's a gas-generator cycle engine using RP-1 and liquid oxygen. Merlin's design is
-                        focused on reliability and manufacturability, incorporating a pintle injector for deep
-                        throttling capabilities. This injector, originally used in Apollo's Lunar Module Descent
-                        Engine, offers precise control and contributes to the Falcon 9’s reusability, allowing for
-                        controlled landings. With a sea-level optimized version for liftoff and a vacuum-optimized
-                        variant for high-efficiency upper-stage operations, the Merlin engine has successfully
-                        powered numerous missions, deploying satellites and sending astronauts to the
-                        International Space Station.</span>
+                    <span>The Merlin engine is the workhorse of SpaceX's fleet, propelling the Falcon rockets to orbit.
+                        It's a gas-generator cycle engine using RP-1 and liquid oxygen. Merlin's design is focused on
+                        reliability and manufacturability, incorporating a pintle injector for deep throttling
+                        capabilities. This injector, originally used in Apollo's Lunar Module Descent Engine, offers
+                        precise control and contributes to the Falcon 9’s reusability, allowing for controlled landings.
+                        With a sea-level optimized version for liftoff and a vacuum-optimized variant for
+                        high-efficiency upper-stage operations, the Merlin engine has successfully powered numerous
+                        missions, deploying satellites and sending astronauts to the International Space Station.</span>
                 </div>
             </div>
         </div>
+
         <div class="card">
             <div class="card__image-container">
                 <img src="Image/engine1-2.jpg" alt="image" />
@@ -256,6 +545,7 @@
             <a class="listSM" style="text-decoration: none" href="https://www.instagram.com/">instagram</a>
         </ul>
     </footer>
+
 </body>
 
 </html>

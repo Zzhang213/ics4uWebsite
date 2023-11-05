@@ -40,7 +40,7 @@
         }
 
         .logo {
-            width: 50px;
+            width: 70px;
             height: auto;
             margin-right: 10px;
         }
@@ -48,7 +48,7 @@
         .website-name {
             color: aliceblue;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 35px;
             font-weight: bold;
         }
 
@@ -101,102 +101,153 @@
 
 
 
+        /* General styles for the container that wraps the form */
         .form-container {
             background: rgba(0, 0, 0, 0);
+            /* Transparent background */
             position: relative;
+            /* Enables absolute positioning for children relative to this container */
             padding: 20px;
+            /* Spacing inside the container */
             border-radius: 8px;
+            /* Rounded corners of the container */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            /* A subtle shadow around the container */
             margin: 0;
-            padding: 20px;
+            /* No margin outside the container */
             font-family: 'Courier New', monospace;
+            /* Font style for the text inside the container */
             height: 75vh;
+            /* Container height is 75% of the viewport height */
             display: flex;
+            /* Enables flexbox layout to center the form */
             justify-content: center;
+            /* Centers form horizontally */
             align-items: center;
+            /* Centers form vertically */
             transform: translateY(12%);
+            /* Moves the container down slightly from its original position */
         }
 
-
+        /* Styles for the form element */
         form {
             display: flex;
+            /* Enables flexbox layout for the form */
             flex-direction: column;
+            /* Stacks form items vertically */
             gap: 15px;
+            /* Space between each form item */
         }
 
+        /* Styles for the row of input elements */
         .input-row {
             display: flex;
+            /* Enables flexbox layout for input rows */
             gap: 15px;
+            /* Space between inputs within a row */
         }
 
+        /* Styles applied to both input fields and textareas */
         input,
         textarea {
             padding: 10px;
+            /* Spacing inside the inputs/textarea */
             border: 1px solid #ccc;
+            /* Border color of the inputs/textarea */
             border-radius: 5px;
+            /* Rounded corners of the inputs/textarea */
             outline: none;
+            /* Removes the default focus outline */
             flex: 1;
+            /* Allows inputs to grow and fill available space */
         }
 
+        /* Styles for the button element */
         button {
             padding: 10px;
+            /* Spacing inside the button */
             background-color: black;
+            /* Background color of the button */
             color: #fff;
+            /* Text color of the button */
             border: none;
+            /* No border for the button */
             border-radius: 5px;
+            /* Rounded corners of the button */
             cursor: pointer;
+            /* Changes the cursor to indicate the button is clickable */
             transition: background-color 0.3s;
+            /* Smooth transition for the background color when hovering */
         }
 
+        /* Changes the button styling when hovered over */
         button:hover {
             background-color: aliceblue;
+            /* Light blue background color when hovered */
             color: black;
+            /* Text color changes to black when hovered */
         }
 
+        /* Media query for styles that will apply on screens less than or equal to 768 pixels wide */
         @media (max-width: 768px) {
 
-        header {
-            padding: 10px 0;
-        }
+            /* Styles for header within the media query context */
+            header {
+                padding: 10px 0;
+            }
 
-        .logo-container {
-            justify-content: space-between; 
-        }
+            /* Styles for the container holding the logo */
+            .logo-container {
+                justify-content: space-between;
+            }
 
-        .logo {
-            width: 40px;
-        }
+            /* Styles for the logo image */
+            .logo {
+                width: 40px;
+            }
 
-        .website-name {
-            font-size: 18px; 
-        }
+            /* Styles for the website name text */
+            .website-name {
+                font-size: 18px;
+            }
 
-        .form-container {
-            transform: translateY(0); 
-            padding: 10px; 
-            height: auto; 
-            transform: translateY(50%);
-        }
+            /* Adjusted form container styles for mobile */
+            .form-container {
+                transform: translateY(0);
+                /* Resets the Y-axis transformation */
+                padding: 10px;
+                /* Reduced padding inside the container */
+                height: auto;
+                /* Height is determined by the content */
+                transform: translateY(50%);
+                /* Moves the container down halfway through the viewport */
+            }
 
-        .input-row {
-            flex-direction: column; 
-        }
+            /* Adjusted input row styles for mobile */
+            .input-row {
+                flex-direction: column;
+                /* Stacks input elements vertically */
+            }
 
-        input,
-        textarea {
-            flex: none;
-            width: 100%;
-        }
+            /* Adjusted input and textarea styles for mobile */
+            input,
+            textarea {
+                flex: none;
+                /* Disables flex grow and shrink */
+                width: 100%;
+                /* Inputs and textarea take full width */
+            }
 
-        .footer {
-            padding: 1rem 0; 
-        }
+            /* Styles for footer within the media query context */
+            .footer {
+                padding: 1rem 0;
+            }
 
-        .listSM {
-            font-size: 0.9rem; 
+            /* Styles for the listSM class within the media query context */
+            .listSM {
+                font-size: 0.9rem;
+            }
         }
-    }
-
     </style>
 </head>
 
@@ -209,20 +260,35 @@
         </div>
     </header>
 
+    <!-- Container for the form, allowing for styling and layout of the form elements -->
     <div class="form-container">
+        <!-- The form element with attributes defining the method and the server endpoint where data will be sent -->
         <form action="your-server-endpoint" method="post">
+
+            <!-- A row for input fields, potentially for layout purposes -->
             <div class="input-row">
+                <!-- Input field for the first name, 'required' makes it mandatory to fill -->
                 <input type="text" name="first-name" placeholder="First Name" required>
+                <!-- Input field for the last name, 'required' makes it mandatory to fill -->
                 <input type="text" name="last-name" placeholder="Last Name" required>
             </div>
+
+            <!-- Another row for input fields -->
             <div class="input-row">
+                <!-- Input field for email, 'required' makes it mandatory to fill -->
                 <input type="email" name="email" placeholder="Email" required>
+                <!-- Input field for phone number, 'required' makes it mandatory to fill -->
                 <input type="tel" name="phone-number" placeholder="Phone Number" required>
             </div>
+
+            <!-- A textarea for longer text input, such as questions or ideas -->
             <textarea name="questions" rows="5" placeholder="Questions and Ideas..."></textarea>
+
+            <!-- A button to submit the form -->
             <button type="submit">Submit</button>
         </form>
     </div>
+
 
     <footer class="footer">
         <div class="text">ROCKETSPACE © 2023</div>

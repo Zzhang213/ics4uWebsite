@@ -5,429 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rocket Space</title>
-
+    <link href="/style/footer.css" rel="stylesheet">
+    <link href="style/header.css" rel="stylesheet">
+    <link href="style/homeMain.css" rel="stylesheet">
     <style>
         body {
             margin: 0px;
-        }
-
-        /*================================================================*/
-
-        .footer {
-            background: rgba(0, 0, 0, 0);
-            color: #999999;
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            font-weight: 400;
-            padding: 1.5rem 0;
-            position: relative;
-            margin-top: -88px;
-            clear: both;
-        }
-
-
-        .text {
-            color: #999999;
-        }
-
-        .list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: center;
-            padding: 0 0.9rem;
-            padding-top: 0.9rem;
-            margin: 0 auto;
-        }
-
-        .listSM {
-            font-weight: 300;
-            color: white;
-        }
-
-        .listSM:hover {
-            color: #8a8282;
-        }
-
-        /*================================================================*/
-
-        .container {
-            height: 100vh;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        .main {
-            display: flex;
-            color: aliceblue;
-            font-size: 30px;
-        }
-
-        .container .background {
-            height: 100%;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .container .background:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-
-        .container .background.one {
-            background-image: url(../Image/rocketengine4.jpg);
-        }
-
-        .container .background.two {
-            background-image: url(../Image/falcon9-2.jpg);
-        }
-
-        .container .background.three {
-            background-image: url(../Image/mars.jpg);
-        }
-
-        .container .content {
-            position: absolute;
-            bottom: 10%;
-            left: 1.5rem;
-            width: 90%;
-            max-width: 500px;
-            overflow: hidden;
-            transform: translate(100px, -55px);
-            transition: opacity 1s, transform 1s;
-        }
-
-        .container .content .header {
-            color: aliceblue;
-            font-size: 2rem;
-            text-align: left;
-            margin: 0 0 1rem auto;
-            font-weight: 600;
-        }
-
-        .container .content .subheader {
-            color: aliceblue;
-            font-size: 1rem;
-        }
-
-        .container .content .button {
-            border: 2px solid white;
-            display: inline-block;
-            position: relative;
-            z-index: 2;
-            margin-top: 1rem;
-        }
-
-        .container .content .button .text {
-            color: aliceblue;
-            font-weight: bold;
-            font-size: 0.8rem;
-            display: inline-block;
-            text-transform: uppercase;
-            padding: 1.2rem 2.5rem;
-            transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .container .content .button .hover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: white;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-            transform: scale3d(1, 0, 1);
-            transform-origin: top center;
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .container .content .button:hover .hover {
-            transform: scale3d(1, 1, 1);
-            transform-origin: bottom center;
-        }
-
-        .container .content .button:hover .text {
-            color: black;
-        }
-
-        /*================================================================*/
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        header {
-            font-family: 'Courier New', monospace;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px;
-            background-color: rgba(0, 0, 0, 0);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: auto;
-            margin-right: 10px;
-        }
-
-        .logo-container h1 {
-            color: #ECF0F1;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-right: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #ECF0F1;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: rgb(154, 151, 151);
-        }
-
-        .contact-button {
-            background-color: rbg(0, 0, 0, 0);
-            color: aliceblue;
-            border: 2px solid white;
-            cursor: pointer;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-button:hover {
-            background-color: aliceblue;
-            color: #000000;
-        }
-
-
-        /*================================================================*/
-
-
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .menu-icon {
-            color: white;
-            display: inline-block;
-            font-size: 28px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        #menu-toggle {
-            display: none;
-        }
-
-        #menu-toggle:checked+.menu-icon+.nav {
-            display: flex;
-
-        }
-
-        #menu-toggle:checked+.menu-icon+.nav ul {
-            flex-direction: column;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        #menu-toggle:checked+.menu-icon+.nav ul li {
-            margin-top: 10px;
-            text-align: center;
-        }
-
-
-        @media only screen and (max-width: 1000px) {
-            header {
-                justify-content: space-between;
-            }
-
-            .hamburger-menu {
-                display: flex;
-            }
-
-            nav {
-                display: none;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                position: absolute;
-                top: 100%;
-                left: 0;
-            }
-
-            nav ul {
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            nav a {
-                display: block;
-                padding: 10px;
-                width: 100%;
-                text-align: center;
-            }
-
-            .logo {
-                width: 40px;
-            }
-
-            .logo-container h1 {
-                font-size: 20px;
-            }
-
-            #menu-toggle:checked~header {
-                background-color: black;
-            }
-
-            #menu-toggle:checked+.menu-icon+.nav {
-                display: flex;
-                background-color: black;
-            }
-
-
-
-        }
-
-        @media (hover: hover) {
-            nav a:hover {
-                color: #E0E0E0;
-                background-color: #333;
-            }
-        }
-
-
-        @media only screen and (max-width: 600px) {
-
-
-            .logo-container {
-                justify-content: center;
-                flex-grow: 1;
-            }
-
-            .logo-container h1 {
-                text-align: center;
-            }
-
-
-            nav ul {
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 0;
-                padding: 10px;
-            }
-
-            nav a {
-                text-align: center;
-            }
-
-
-            .hamburger-menu {
-                width: 100%;
-                justify-content: center;
-            }
-
-
-            .container .content {
-                left: 50%;
-                transform: translate(-50%, 100%);
-                bottom: 50%;
-                text-align: center;
-            }
-
-
-
-            .container .content .header,
-            .container .content .subheader {
-                margin: 0.5rem 0;
-            }
-
-
-            .container .content .button {
-                margin: 1rem auto;
-                display: block;
-            }
-
-            .container .content .button .text {
-                padding: 1rem 2rem;
-            }
-
-
-            .footer {
-                padding: 1rem 0;
-            }
-
-            .list {
-                justify-content: center;
-            }
-
-            .listSM {
-                margin: 0.5rem;
-            }
-        }
-
-
-        @media (hover: none) {
-
-            nav a:hover,
-            .contact-button:hover,
-            .container .content .button:hover .text {
-                background-color: transparent;
-                color: inherit;
-            }
         }
     </style>
 </head>
 
 <body>
 
+
     <header>
+        <!-- Logo Container -->
         <div class="logo-container">
+            <!-- Website logo -->
             <img src="Image/basic+white-rocket-131994932040824926.png" alt="ROCKETSPACE Logo" class="logo">
+            <!-- Title of Website -->
             <h1>ROCKETSPACE</h1>
         </div>
+
+        <!-- Hamburger Menu  -->
         <div class="hamburger-menu">
+            <!-- Checkbox for toggling the menu -->
             <input id="menu-toggle" type="checkbox">
+            <!-- Label for the hamburger icon which is controlled by the 'menu-toggle' checkbox -->
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <!-- Navigation links to other webpages -->
             <nav class="nav">
                 <ul>
                     <li><a href="rocketEngine.html">Rocket Engine</a></li>
@@ -437,75 +44,92 @@
                 </ul>
             </nav>
         </div>
+
+        <!-- Standard navigation bar-->
         <nav class="nav">
             <ul>
                 <li><a href="rocketEngine.html">Rocket Engine</a></li>
                 <li><a href="mission.html">Recent Mission</a></li>
                 <li><a href="future.html">Future Outlook</a></li>
+                <!-- 'Contact' link styled as a button -->
                 <li><a href="ContactUs.html" class="contact-button">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main Content Sections -->
+
+    <!-- Rocket Engine -->
     <section class="container">
+        <!-- Background image one -->
         <div class="background one"></div>
 
+        <!-- Content for the Rocket Engine -->
         <div class="content">
-            <h4 class="subheader">ROCKET ENGINE </h4>
-
+            <h4 class="subheader">ROCKET ENGINE</h4>
             <h1 class="main">
                 Explore The Fascinating World of Rocket Engines
             </h1>
-
+            <!-- Button to webpage -->
             <a class="button" href="rocketEngine.html">
                 <span class="text">Learn More</span>
+                <!-- Hover effect for the button -->
                 <div class="hover"></div>
             </a>
         </div>
     </section>
 
+    <!-- Recent Missions Section -->
     <section class="container">
+        <!-- Background image two -->
         <div class="background two"></div>
 
+        <!-- Content for the Recent Missions -->
         <div class="content">
             <h4 class="subheader">Recent Missions</h4>
-
             <h1 class="main">
                 Read All About Recent Space Mission and Effort Around The World
             </h1>
-
+            <!-- Button to webpage -->
             <a class="button" href="mission.html">
                 <span class="text">Learn More</span>
+                <!-- Hover effect for the button -->
                 <div class="hover"></div>
             </a>
         </div>
     </section>
 
+    <!-- Future Outlook Section -->
     <section class="container">
+        <!-- Background image three -->
         <div class="background three"></div>
 
+        <!-- Content for the Future Outlook -->
         <div class="content">
             <h4 class="subheader">FUTURE OUTLOOK</h4>
-
             <h1 class="main">
                 A Leap Into Multiplanetary Species
             </h1>
-
+            <!-- Button to webpage -->
             <a class="button" href="future.html">
                 <span class="text">Learn More</span>
+                <!-- Hover effect for the button -->
                 <div class="hover"></div>
             </a>
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="footer">
-
+        <!-- List of social media links -->
         <ul class="list">
+            <!-- Each list item is a social media link with a class for styling -->
             <a class="listSM" style="text-decoration: none" href="https://twitter.com/">Twitter</a>
             <a class="listSM" style="text-decoration: none" href="https://www.youtube.com/">youtube</a>
             <a class="listSM" style="text-decoration: none" href="https://www.instagram.com/">instagram</a>
         </ul>
     </footer>
+
 
 </body>
 

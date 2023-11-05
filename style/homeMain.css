@@ -1,0 +1,147 @@
+/* Container setup */
+.container {
+    height: 100vh; /* Full viewport height */
+    min-height: 100vh; /* Minimum height is also the full viewport height */
+    position: relative; /* Used for absolute positioning of child elements */
+}
+
+/* Main content styling */
+.main {
+    display: flex; /* Uses flexbox for layout */
+    color: aliceblue; /* Light blue text color */
+    font-size: 30px; /* Large text size */
+}
+
+/* Background styling for the container */
+.container .background {
+    height: 100%; /* Full height of the parent */
+    background-repeat: no-repeat; /* The background image does not repeat */
+    background-size: cover; /* Covers the entire area of the element */
+    background-position: center; /* Centers the background image */
+}
+
+/* Pseudo-element for adding an overlay effect */
+.container .background:after {
+    content: ''; /* Necessary for pseudo-elements */
+    position: absolute; /* Positions relative to .background */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+}
+
+/* Background images for different sections */
+.container .background.one {
+    background-image: url(../Image/rocketengine4.jpg); /* Rocket engine background */
+}
+
+.container .background.two {
+    background-image: url(../Image/falcon9-2.jpg); /* Falcon 9 background */
+}
+
+.container .background.three {
+    background-image: url(../Image/mars.jpg); /* Mars background */
+}
+
+/* Content styling within the container */
+.container .content {
+    position: absolute; /* Positioned relative to .container */
+    bottom: 10%; /* Positioned 10% from the bottom of .container */
+    left: 1.5rem; /* Positioned 1.5rem from the left of .container */
+    width: 90%; /* Occupies 90% of the container's width */
+    max-width: 500px; /* Maximum width is 500px */
+    overflow: hidden; /* Hides any content that overflows */
+    transform: translate(100px, -55px); /* Position adjustment */
+    transition: opacity 1s, transform 1s; /* Smooth transitions for opacity and transform */
+}
+
+/* Header styling within the content */
+.container .content .header {
+    color: aliceblue; /* Light blue text color */
+    font-size: 2rem; /* Font size is 2rem */
+    text-align: left; /* Text aligned to the left */
+    margin: 0 0 1rem auto; /* Margin adjustment */
+    font-weight: 600; /* Semi-bold font */
+}
+
+/* Subheader styling */
+.container .content .subheader {
+    color: aliceblue; /* Light blue text color */
+    font-size: 1rem; /* Font size is 1rem */
+}
+
+/* Button styling within the content */
+.container .content .button {
+    border: 2px solid white; /* White border */
+    display: inline-block; /* Allows the button to sit inline with other elements */
+    position: relative; /* Positioning context for pseudo-elements */
+    z-index: 2; /* Ensures the button is above other elements */
+    margin-top: 1rem; /* Space above the button */
+}
+
+/* Button text styling */
+.container .content .button .text {
+    color: aliceblue; /* Light blue text color */
+    font-weight: bold; /* Bold font for the text */
+    font-size: 0.8rem; /* Smaller font size for the text */
+    display: inline-block; /* Allows the text to sit inline with other elements */
+    text-transform: uppercase; /* Transforms text to uppercase */
+    padding: 1.2rem 2.5rem; /* Padding inside the button */
+    transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Transition for the color change */
+}
+
+/* Hover effect for the button */
+.container .content .button .hover {
+    position: absolute; /* Absolute positioning within the button */
+    top: 0;
+    left: 0;
+    background: white; /* White background */
+    height: 100%; /* Full height of the parent */
+    width: 100%; /* Full width of the parent */
+    z-index: -1; /* Below the button text */
+    transform: scale3d(1, 0, 1); /* Initially scaled down */
+    transform-origin: top center; /* Origin for the transform */
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth transition for the transform */
+}
+
+/* Button hover state */
+
+
+.container .content .button:hover .hover {
+    transform: scale3d(1, 1, 1);
+    transform-origin: bottom center;
+}
+
+.container .content .button:hover .text {
+    color: black;
+}
+
+
+/* Media query for mobile devices and smaller screens */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column; /* Stack flex items vertically on small screens */
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
+
+    .container .content {
+        bottom: 5%; /* Adjust position for smaller screens */
+        left: 5%; /* Adjust left position for smaller screens */
+        width: 90%; /* Utilize more width on small screens */
+        max-width: none; /* Remove max-width restriction on small screens */
+        transform: translate(0, -155px); /* Adjust transform for smaller screens */
+    }
+
+    .container .content .header {
+        font-size: 1.5rem; /* Smaller font size for headers on small screens */
+    }
+
+    .container .content .subheader {
+        font-size: 0.8rem; /* Smaller font size for subheaders on small screens */
+    }
+
+    .container .content .button .text {
+        padding: 0.8rem 2rem; /* Adjust padding for smaller screens */
+    }
+}

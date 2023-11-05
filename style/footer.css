@@ -1,0 +1,40 @@
+/* Styles for the footer element */
+.footer {
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+    color: #999999; /* Text color set to a light gray */
+    text-align: center; /* Aligns text to the center */
+    text-transform: uppercase; /* Transforms all text to uppercase */
+    font-size: 0.7rem; 
+    font-weight: 400; 
+    padding: 1.5rem 0; 
+    position: relative; 
+    margin-top: -88px; 
+    clear: both; 
+}
+
+/* Styles for elements with class .text */
+.text {
+    color: #999999; /* Text color set to a light gray (same as footer text color) */
+}
+
+/* Styles for the list container */
+.list {
+    display: flex; /*  flexbox layout */
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines as needed */
+    justify-content: space-evenly; /* Distributes items evenly with equal space around them */
+    align-items: center; /* Vertically aligns items in the middle */
+    padding: 0 0.9rem; 
+    padding-top: 0.9rem; 
+    margin: 0 auto; 
+}
+
+/* Styles for social media list items */
+.listSM {
+    font-weight: 300; /* Lighter font weight than normal */
+    color: white; /* Text color set to white */
+}
+
+/* Hover styles for social media list items */
+.listSM:hover {
+    color: #8a8282; /* Text color changes to a different shade of gray when hovered over */
+}

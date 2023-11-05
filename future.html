@@ -12,26 +12,262 @@
             font-family: Arial, sans-serif;
         }
 
+
+
         /*==============================================================================*/
 
 
         header {
-            background-color: #000000;
-            padding: 20px 0;
-            text-align: center;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
 
+
         .logo-container {
-            display: inline-flex;
-            /* Inline-flex keeps it centered */
+            display: flex;
             align-items: center;
-            justify-content: center;
+            margin-left: 30px;
+
         }
 
         .logo {
             width: 50px;
             height: auto;
             margin-right: 10px;
+        }
+
+        .logo-container h1 {
+            color: #ECF0F1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ECF0F1;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: rgb(154, 151, 151);
+        }
+
+        .contact-button {
+            background-color: rbg(0, 0, 0, 0);
+            color: aliceblue;
+            border: 2px solid white;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: aliceblue;
+            color: #000000;
+        }
+
+
+        /*================================================================*/
+
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .menu-icon {
+            color: white;
+            display: inline-block;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked+.menu-icon+.nav {
+            display: flex;
+
+        }
+
+        #menu-toggle:checked+.menu-icon+.nav ul {
+            flex-direction: column;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #menu-toggle:checked+.menu-icon+.nav ul li {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+        @media only screen and (max-width: 1000px) {
+            header {
+                justify-content: space-between;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+
+            nav ul {
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                display: block;
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .logo {
+                width: 40px;
+            }
+
+            .logo-container h1 {
+                font-size: 20px;
+            }
+
+            #menu-toggle:checked~header {
+                background-color: black;
+            }
+
+            #menu-toggle:checked+.menu-icon+.nav {
+                display: flex;
+                background-color: black;
+            }
+
+
+
+        }
+
+        @media (hover: hover) {
+            nav a:hover {
+                color: #E0E0E0;
+                background-color: #333;
+            }
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+
+            .logo-container {
+                justify-content: center;
+                flex-grow: 1;
+            }
+
+            .logo-container h1 {
+                text-align: center;
+            }
+
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0;
+                padding: 10px;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+
+            .hamburger-menu {
+                width: 100%;
+                justify-content: center;
+            }
+
+
+            .container .content {
+                left: 50%;
+                transform: translate(-50%, 100%);
+                bottom: 50%;
+                text-align: center;
+            }
+
+
+
+            .container .content .header,
+            .container .content .subheader {
+                margin: 0.5rem 0;
+            }
+
+
+            .container .content .button {
+                margin: 1rem auto;
+                display: block;
+            }
+
+            .container .content .button .text {
+                padding: 1rem 2rem;
+            }
+
+
+            .footer {
+                padding: 1rem 0;
+            }
+
+            .list {
+                justify-content: center;
+            }
+
+            .listSM {
+                margin: 0.5rem;
+            }
+        }
+
+
+        @media (hover: none) {
+
+            nav a:hover,
+            .contact-button:hover,
+            .container .content .button:hover .text {
+                background-color: transparent;
+                color: inherit;
+            }
         }
 
         .website-name {
@@ -61,6 +297,7 @@
 
         .text {
             color: #999999;
+            margin-bottom: 30px;
         }
 
         .list {
@@ -84,83 +321,127 @@
 
         /*================================================================*/
 
+        /* Styles for the header of the article, such as the title and subtitle */
         .article-header {
             text-align: center;
+            /* Centers text horizontally */
             margin-top: 0px;
-            padding-top: 0px;
+            /* Sets the top margin to 0 */
+            padding-top: 7px;
+            /* Adds padding on top of the element */
             margin-bottom: 30px;
+            /* Sets space below the header */
         }
 
+        /* Styles for the images inside articles */
         .article-image {
             display: block;
+            /* Makes the image a block-level element, allowing margin auto to work */
             margin-left: auto;
             margin-right: auto;
             width: 50%;
+            /* Sets the width of the image to 50% of its containing element */
             border-radius: 10px;
+            /* Rounds the corners of the image */
         }
 
+        /* Styles for the main content of the article */
         .article-content {
             width: 70%;
+            /* Sets the width to 70% of its containing element */
             margin: 0 auto;
+            /* Centers the content block horizontally */
             text-align: center;
+            /* Centers the text within the content block */
             font-size: 18px;
+            /* Sets the font size to 18 pixels */
             line-height: 2;
+            /* Sets the line height to double the font size */
         }
 
+        /* Styles for the date of the article */
         .article-date {
             text-align: right;
+            /* Aligns the date text to the right */
             margin-top: 40px;
+            /* Sets the top margin to create space above the date */
             margin-right: 50px;
+            /* Sets the right margin to push the date inward */
         }
 
+        /* Responsive design adjustments for screens that are at least 768px wide */
         @media only screen and (min-width: 768px) {
 
+            /* Larger margins for the article header on wider screens */
             .article-header {
                 margin-top: 100px;
+                /* Increases the top margin */
                 margin-bottom: 50px;
+                /* Increases the bottom margin */
             }
 
+            /* Larger width for the article image on wider screens */
             .article-image {
                 width: 75%;
+                /* Increases the width to 75% */
             }
 
+            /* Adjustments to article content area on wider screens */
             .article-content {
                 width: 80%;
+                /* Increases the width to 80% */
                 font-size: 20px;
+                /* Increases the font size to 20 pixels */
             }
 
+            /* More spacing for the article date on wider screens */
             .article-date {
                 margin-right: 100px;
+                /* Increases the right margin */
             }
 
+            /* Adjusts padding for lists on wider screens */
             .list {
                 padding: 0 2rem;
+                /* Sets horizontal padding to 2 rem */
             }
         }
 
-
+        /* Responsive design adjustments for screens that are up to 480px wide */
         @media only screen and (max-width: 480px) {
 
+            /* Smaller margins for the article header on narrower screens */
             .article-header {
                 margin-top: 30px;
+                /* Decreases the top margin */
                 margin-bottom: 20px;
+                /* Decreases the bottom margin */
             }
 
+            /* Larger width for the article image on narrower screens to ensure visibility */
             .article-image {
                 width: 90%;
+                /* Increases the width to 90% */
             }
 
+            /* Adjustments to article content area on narrower screens */
             .article-content {
                 width: 95%;
+                /* Increases the width to 95% */
                 font-size: 16px;
+                /* Decreases the font size to 16 pixels */
             }
 
+            /* Less spacing for the article date on narrower screens */
             .article-date {
                 margin-right: 20px;
+                /* Decreases the right margin */
             }
 
+            /* Adjusts padding for lists on narrower screens */
             .list {
                 padding: 0 1rem;
+                /* Sets horizontal padding to 1 rem */
             }
         }
     </style>
@@ -170,60 +451,100 @@
     <header>
         <div class="logo-container">
             <img src="Image/basic+white-rocket-131994932040824926.png" alt="ROCKETSPACE Logo" class="logo">
-            <a href="homepage.html" class="website-name">ROCKETSPACE</a>
+            <a href="homepage.html" class="website-name">
+                <h1>ROCKETSPACE</h1>
+            </a>
         </div>
+        <div class="hamburger-menu">
+            <input id="menu-toggle" type="checkbox">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <nav class="nav">
+                <ul>
+                    <li><a href="rocketEngine.html">Rocket Engine</a></li>
+                    <li><a href="mission.html">Recent Mission</a></li>
+                    <li><a href="future.html">Future Outlook</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="rocketEngine.html">Rocket Engine</a></li>
+                <li><a href="mission.html">Recent Mission</a></li>
+                <li><a href="future.html">Future Outlook</a></li>
+                <li><a href="ContactUs.html" class="contact-button">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="article-header">
-        <h1>Future Outlook In Space Travel </h1>
-        <h3>Mars Colonization</h3>
-    </div>
-    <img src="Image/mars2.jpg" alt="Sam Bankman-Fried" class="article-image">
-    <div class="article-content">
-        <p>
-            Mars colonization presents profound challenges, starting with the perilous journey of around seven months
-            through the vacuum of space. Upon arrival, colonists will encounter a hostile environment: extreme cold,
-            a thin carbon dioxide atmosphere, and intense radiation due to the lack of a protective magnetosphere.
-            These conditions necessitate the development of robust habitats capable of sustaining life, protecting
-            against radiation, and providing breathable air and potable water.
+    Certainly! Below is the provided HTML code with simple comments explaining each part:
 
-            <br><br>
+    ```html
+    <!-- Main content area -->
+    <main>
+        <!-- Article header section with title and subtitle -->
+        <div class="article-header">
+            <!-- Main article title -->
+            <h1>Future Outlook In Space Travel </h1>
+            <!-- Article subtitle -->
+            <h3>Mars Colonization</h3>
+        </div>
 
-            The utilization of in-situ resources is a cornerstone of sustainable colonization. Technologies such as
-            MOXIE, an experiment on NASA's Perseverance rover designed to produce oxygen from Martian CO2, are
-            prototypes for future, larger-scale systems. Furthermore, 3D printing with regolith, the loose Martian
-            soil, is being explored to construct habitats and infrastructure without the prohibitive cost of
-            transporting materials from Earth.
+        <img src="Image/mars2.jpg" alt="Image of Mars" class="article-image">
 
-            <br><br>
+        <!-- Article's main content area -->
+        <div class="article-content">
+            <!-- Paragraph content goes here -->
+            <p>
 
-            Biological considerations also play a pivotal role in colonization. Long-term exposure to microgravity
-            and reduced gravity on Mars can lead to muscle atrophy and bone loss in humans. Research in
-            countermeasures, including artificial gravity and exercise regimens, is essential for health maintenance.
-            Additionally, the psychological impact of isolation and confinement must be addressed through habitat
-            design and social structures that foster a sense of community and wellbeing.
+                Mars colonization presents profound challenges, starting with the perilous journey of around seven
+                months
+                through the vacuum of space. Upon arrival, colonists will encounter a hostile environment: extreme cold,
+                a thin carbon dioxide atmosphere, and intense radiation due to the lack of a protective magnetosphere.
+                These conditions necessitate the development of robust habitats capable of sustaining life, protecting
+                against radiation, and providing breathable air and potable water.
 
-            <br><br>
+                <br><br>
 
-            The tantalizing possibility of terraforming, the process of modifying Mars' environment to make it more
-            Earth-like, remains a distant and controversial goal. Such a transformation would take centuries and
-            raises ethical considerations about the potential for microbial life on Mars and our responsibility to
-            preserve it.
+                The utilization of in-situ resources is a cornerstone of sustainable colonization. Technologies such as
+                MOXIE, an experiment on NASA's Perseverance rover designed to produce oxygen from Martian CO2, are
+                prototypes for future, larger-scale systems. Furthermore, 3D printing with regolith, the loose Martian
+                soil, is being explored to construct habitats and infrastructure without the prohibitive cost of
+                transporting materials from Earth.
+
+                <br><br>
+
+                Biological considerations also play a pivotal role in colonization. Long-term exposure to microgravity
+                and reduced gravity on Mars can lead to muscle atrophy and bone loss in humans. Research in
+                countermeasures, including artificial gravity and exercise regimens, is essential for health
+                maintenance.
+                Additionally, the psychological impact of isolation and confinement must be addressed through habitat
+                design and social structures that foster a sense of community and wellbeing.
+
+                <br><br>
+
+                The tantalizing possibility of terraforming, the process of modifying Mars' environment to make it more
+                Earth-like, remains a distant and controversial goal. Such a transformation would take centuries and
+                raises ethical considerations about the potential for microbial life on Mars and our responsibility to
+                preserve it.
 
 
-            <br>
-            <br>
+                <br>
+                <br>
 
 
-            Mars colonization is more than a physical endeavor; it represents a philosophical leap for humanity. As
-            we step into this new epoch, the lessons learned could not only ensure the survival of our species but
-            also teach us about resilience, innovation, and the preservation of our home planet. The Red Planet thus
-            serves as a canvas for one of humanity's grandest adventures, and the brushstrokes of this epic are only
-            just beginning.
+                Mars colonization is more than a physical endeavor; it represents a philosophical leap for humanity. As
+                we step into this new epoch, the lessons learned could not only ensure the survival of our species but
+                also teach us about resilience, innovation, and the preservation of our home planet. The Red Planet thus
+                serves as a canvas for one of humanity's grandest adventures, and the brushstrokes of this epic are only
+                just beginning.
 
-            <br><br>
-        </p>
-    </div>
-    <div class="article-date">Nov 3rd, 2023 | ROCKETSPACE</div>
+                <br><br>
+            </p>
+        </div>
+
+        <!-- Publication date and source of the article -->
+        <div class="article-date">Nov 3rd, 2023 | ROCKETSPACE</div>
+    </main>
     <footer class="footer">
         <div class="text">ROCKETSPACE © 2023</div>
         <ul class="list">
